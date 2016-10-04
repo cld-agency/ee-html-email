@@ -5,6 +5,8 @@ CLD HTML Email for ExpressionEngine 2.x
 1. Make sure your email settings are set to send HTML email under Admin > Email Configuration in the EE control panel.
 1. Enable the extension in the EE control panel
 
+Please note that this is a system-wide change, and as such any add-ons that use EE to send email will now be sending in HTML format. Specifically, if you use any Freeform forms, you'll need to ensure that any notifications are set to use an HTML formatted notification template rather than the default.
+
 --------------------------------------------
 
 MIT License
