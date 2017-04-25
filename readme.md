@@ -1,4 +1,4 @@
-CLD HTML Email for ExpressionEngine 2.x
+CLD HTML Email for ExpressionEngine
 ====================================
 
 1. Copy `cld_html_email` folder into your `third_party` directory
