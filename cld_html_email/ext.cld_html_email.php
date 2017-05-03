@@ -84,11 +84,17 @@ class Cld_html_email_ext {
 	 *
 	 * @return no return, just amend $data directly via reference
 	 */
+        public function email_send($data)
+        {
+          $data['headers']['mailtype'] = ee()->config->item('mail_format');
+          $data['header_str'] = str_replace("Content-Type: text/plain; charset=utf-8", "Content-type: text/html; charset=utf-8", $data['header_str']);
 
-	public function email_send(&$data)
-	{
-		$data['headers']['mailtype'] = ee()->config->item('mail_format');
-		$data['header_str'] = str_replace("Content-Type: text/plain; charset=utf-8", "Content-type: text/html; charset=utf-8", $data['header_str']);
-	}
+          //add it if it's not there
+          if (strpos($data['header_str'], "Content-type: text/html; charset=utf-8") === false
+              && strpos($data['header_str'], "Content-Type: multipart/alternative") === false)
+          {
+              $data['header_str'] .= "Content-type: text/html; charset=utf-8";
+          }
+        }
 }
 // EOF
